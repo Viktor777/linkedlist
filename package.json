@@ -1,24 +1,34 @@
 {
-  "name": "hola-sc15",
-  "version": "1.0.0",
-  "description": "",
+  "name": "LinkedList",
+  "version": "0.1.0",
+  "description": "Linked list which is based on WeakMap.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Viktor777/linkedlist"
   },
   "keywords": [
     "LinkedList",
     "JavaScript",
     "Linked",
-    "List"
+    "List",
+    "linkedlist"
   ],
   "author": "Viktor777",
-  "license": "ISC",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/Viktor777/linkedlist/blob/master/LICENSE"
+    }
+  ],
   "devDependencies": {
-    "browserify": "^10.2.4",
-    "gulp": "^3.9.0",
-    "gulp-browserify": "^0.5.1",
-    "gulp-jshint": "^1.11.0",
-    "gulp-rename": "^1.2.2"
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5"
+  },
+  "bugs": {
+    "url": "https://github.com/Viktor777/linkedlist/issues"
   }
 }
