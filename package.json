@@ -15,7 +15,8 @@
     "JavaScript",
     "Linked",
     "List",
-    "linkedlist"
+    "linkedlist",
+    "WeakMap"
   ],
   "author": "Viktor777",
   "licenses": [

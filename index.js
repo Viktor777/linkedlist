@@ -40,6 +40,16 @@ LinkedList.prototype = Object.create(null, {
     constructor: {
         value: LinkedList
     },
+    get: {
+        /**
+         * Returns the value associated to the key, or undefined if there is none
+         * @param key
+         * @returns {*}
+         */
+        value: function (key) {
+            return key !== null ? this.list.get(key) : undefined;
+        }
+    },
     clear: {
         /**
          * Clear list, remove all nodes
@@ -60,7 +70,7 @@ LinkedList.prototype = Object.create(null, {
          */
         value: function (data) {
 
-            if (!this.head) {
+            if (this.isEmpty()) {
                 this.head = {
                     prev: null,
                     next: null
@@ -82,14 +92,7 @@ LinkedList.prototype = Object.create(null, {
          * @returns {*}
          */
         value: function () {
-            var data = this.list.get(this.head);
-
-            if (this.list.delete(this.head)) {
-                this.head = this.head.next;
-                this.head.prev = null;
-            }
-
-            return data;
+            return this.remove(this.head);
         }
     },
     remove: {
@@ -98,11 +101,26 @@ LinkedList.prototype = Object.create(null, {
          * @returns {*}
          */
         value: function (node) {
-            var data = this.list.get(node);
+            var data;
 
-            node.prev.next = node.next;
-            node.next.prev = node.prev;
-            this.list.delete(node);
+            if (!this.isEmpty()) {
+                if (node.prev !== null) {
+                    node.prev.next = node.next;
+                }
+
+                if (node.next !== null) {
+                    node.next.prev = node.prev;
+                }
+
+                if (node === this.head) {
+                    this.head = node.next !== null ? node.next : {
+                        prev: null,
+                        next: null
+                    };
+                }
+                data = this.list.get(node);
+                this.list.delete(node);
+            }
 
             return data;
         }
